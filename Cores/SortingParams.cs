@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Cores
 {
-    internal class SortingParams
+     class SortingParams
     {
         public List<SortingCriterion>? sortList { get; set; }
     }

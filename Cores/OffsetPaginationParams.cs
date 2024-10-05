@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Cores
 {
-    internal class OffsetPaginationParams : IPaginationParams
+     class OffsetPaginationParams : IPaginationParams
     {
         public int limit { get; set; } = 12;
         public int offset { get; set; } = 0;

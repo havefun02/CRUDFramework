@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Interfaces
 {
-    internal interface IPaginationParams
+     interface IPaginationParams
     {
         int limit { get; set; }
     }

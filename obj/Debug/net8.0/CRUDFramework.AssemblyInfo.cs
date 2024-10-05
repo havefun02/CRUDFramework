@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CRUDFramework")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29e0a9c015305d8378df1d939ac37c32828f06b7")]
 [assembly: System.Reflection.AssemblyProductAttribute("CRUDFramework")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CRUDFramework")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

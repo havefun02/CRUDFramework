@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Interfaces
 {
-    internal interface IFilterService<T> where T : class
+     interface IFilterService<T> where T : class
     {
         IQueryable<T> Filter(IQueryable<T> query, FilterParams<object> filterParams);
 

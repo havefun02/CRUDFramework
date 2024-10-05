@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Cores
 {
-    internal class SortingService<T>:ISortingService<T> where T:class
+     class SortingService<T>:ISortingService<T> where T:class
     {
         public IQueryable<T> Sort(IQueryable<T> query, SortingParams sortingParams)
         {

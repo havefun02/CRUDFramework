@@ -6,7 +6,7 @@ using CRUDFramework.Exceptions;
 
 namespace CRUDFramework.Repositories
 {
-    internal class Repository<T> : IRepository<T> where T : class
+     class Repository<T> : IRepository<T> where T : class
     {
         private readonly DbContext _context;
         private readonly DbSet<T> _dbSet;

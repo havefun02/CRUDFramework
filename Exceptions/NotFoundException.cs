@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Exceptions
 {
-    internal class NotFoundException:Exception
+     class NotFoundException:Exception
     {
         public NotFoundException(string message):base(message) { }
         public NotFoundException() : base() { }

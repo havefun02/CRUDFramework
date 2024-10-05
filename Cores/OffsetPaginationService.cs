@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Cores
 {
-    internal class OffsetPaginationService<T> : IPaginationService<T> where T : class
+     class OffsetPaginationService<T> : IPaginationService<T> where T : class
     {
         public async Task<IPaginationResult<T>> Paginate(IQueryable<T> query, IPaginationParams pageParams)
         {
