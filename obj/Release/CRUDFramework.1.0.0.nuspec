@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>CRUDFramework</authors>
     <description>Package Description</description>
-    <repository type="git" commit="29e0a9c015305d8378df1d939ac37c32828f06b7" />
+    <repository type="git" commit="e39e9657e90e3890bd2fe80a195fca15887edc5b" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Microsoft.EntityFrameworkCore" version="8.0.0" exclude="Build,Analyzers" />

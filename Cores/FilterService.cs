@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Cores
 {
-     class FilterService<T> : IFilterService<T> where T : class
+    public class FilterService<T> : IFilterService<T> where T : class
     {
         public IQueryable<T> Filter(IQueryable<T> query, FilterParams<object> filterParams)
         {

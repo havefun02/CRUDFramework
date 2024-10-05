@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using CRUDFramework.Interfaces;
 using CRUDFramework.Exceptions;
 
-namespace CRUDFramework.Repositories
+namespace CRUDFramework.Cores
 {
-     class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly DbContext _context;
         private readonly DbSet<T> _dbSet;

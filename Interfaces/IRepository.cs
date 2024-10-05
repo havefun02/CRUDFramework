@@ -2,7 +2,7 @@
 
 namespace CRUDFramework.Interfaces
 {
-     interface IRepository<T> where T : class
+     public  interface IRepository<T> where T : class
     {
         public Task<T> CreateAsync(T entity);
         public Task<List<T>> CreateRangeAsync(List<T> entity);

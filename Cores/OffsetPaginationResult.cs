@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Cores
 {
-     class OffsetPaginationResult<T> : IPaginationResult<T> where T : class
+    public class OffsetPaginationResult<T> : IPaginationResult<T> where T : class
     {
         public int offset { get; set; } 
         public int totalItems { get ; set; }

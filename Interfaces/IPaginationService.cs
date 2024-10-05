@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRUDFramework.Interfaces
 {
-     interface IPaginationService<T> where T : class
+     public interface IPaginationService<T> where T : class
     {
          Task<IPaginationResult<T>> Paginate(IQueryable<T> query, IPaginationParams pageParams);
     }
