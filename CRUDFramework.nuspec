@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>CRUDFramework</id>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
         <authors>LAPPHAN</authors>
         <description>A simple CRUD framework</description>
         <tags>CRUD Framework</tags>

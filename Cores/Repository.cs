@@ -6,11 +6,13 @@ using CRUDFramework.Exceptions;
 
 namespace CRUDFramework.Cores
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T,TContext> : IRepository<T> 
+        where T : class
+        where TContext : DbContext
     {
-        private readonly DbContext _context;
+        private readonly TContext _context;
         private readonly DbSet<T> _dbSet;
-        public Repository(DbContext context)
+        public Repository(TContext context)
         {
             _context = context;
             _dbSet=context.Set<T>();

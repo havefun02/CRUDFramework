@@ -2,10 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>CRUDFramework</id>
-    <version>1.0.0</version>
-    <authors>CRUDFramework</authors>
-    <description>Package Description</description>
-    <repository type="git" commit="e39e9657e90e3890bd2fe80a195fca15887edc5b" />
+    <version>1.0.1</version>
+    <authors>LAPPHAN</authors>
+    <description>A simple CRUD framework</description>
+    <tags>CRUD Framework</tags>
+    <repository type="git" commit="633638477c6e5dd5cf249dd833f24e094ae007bf" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Microsoft.EntityFrameworkCore" version="8.0.0" exclude="Build,Analyzers" />
