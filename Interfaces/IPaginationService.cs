@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRUDFramework.Interfaces
+namespace CRUDFramework
 {
      public interface IPaginationService<T> where T : class
     {

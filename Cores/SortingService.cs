@@ -1,14 +1,8 @@
-﻿using CRUDFramework.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CRUDFramework.Cores
+namespace CRUDFramework
 {
     public class SortingService<T>:ISortingService<T> where T:class
     {

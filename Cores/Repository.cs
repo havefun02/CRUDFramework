@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CRUDFramework.Interfaces;
-using CRUDFramework.Exceptions;
 using System;
 
-namespace CRUDFramework.Cores
+namespace CRUDFramework
 {
     /// <summary>
     /// Generic repository class for handling CRUD operations on a specified entity.
@@ -71,7 +69,7 @@ namespace CRUDFramework.Cores
             }
             catch (OperationCanceledException)
             {
-                throw;
+                throw new InternalServerException("Internal server error. Failed to add the object");
             }
         }
 
@@ -102,6 +100,10 @@ namespace CRUDFramework.Cores
             {
                 throw new DataAccessException("Invalid operation encountered while adding the entity range.", ex);
             }
+            catch (OperationCanceledException)
+            {
+                throw new InternalServerException("Internal server error. Failed to add the objects");
+            }
         }
 
         /// <summary>
@@ -130,6 +132,10 @@ namespace CRUDFramework.Cores
             catch (InvalidOperationException ex)
             {
                 throw new DataAccessException("Invalid operation encountered while updating the entity.", ex);
+            }
+            catch (OperationCanceledException)
+            {
+                throw new InternalServerException("Internal server error. Failed to update the object");
             }
         }
 
@@ -160,6 +166,10 @@ namespace CRUDFramework.Cores
             {
                 throw new DataAccessException("Invalid operation encountered while updating the entity range.", ex);
             }
+            catch (OperationCanceledException)
+            {
+                throw new InternalServerException("Internal server error. Failed to update the objects");
+            }
         }
 
         /// <summary>
@@ -168,7 +178,7 @@ namespace CRUDFramework.Cores
         /// <param name="primaryKey">The primary key of the entity to delete.</param>
         /// <returns>The number of affected rows.</returns>
         /// <exception cref="DataAccessException">Thrown when there is an error during the delete operation.</exception>
-        public async Task<int> Delete(object primaryKey)
+        public async Task Delete(object primaryKey)
         {
             if (primaryKey == null)
             {
@@ -181,13 +191,21 @@ namespace CRUDFramework.Cores
                 if (entity != null)
                 {
                     _dbSet.Remove(entity);
-                    return await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();
                 }
-                return 0;
+                else { throw new NullReferenceException("Can't find the object"); }
             }
             catch (DbUpdateException ex)
             {
                 throw new DataAccessException("An error occurred while deleting the entity.", ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new DataAccessException("Invalid operation encountered while deleting the entity.", ex);
+            }
+            catch (OperationCanceledException)
+            {
+                throw new InternalServerException("Internal server error. Failed to delete the object");
             }
         }
 

@@ -1,5 +1,5 @@
 ﻿using CRUDFramework.Exceptions;
-using CRUDFramework.Interfaces;
+using CRUDFramework;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRUDFramework.Cores
+namespace CRUDFramework
 {
     public class OffsetPaginationService<T> : IPaginationService<T> where T : class
     {

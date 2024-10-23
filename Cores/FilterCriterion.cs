@@ -1,5 +1,5 @@
 ﻿
-namespace CRUDFramework.Cores
+namespace CRUDFramework
 {
     public class FilterCriterion<T>
     {

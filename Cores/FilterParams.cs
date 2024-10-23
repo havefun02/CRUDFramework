@@ -1,4 +1,4 @@
-﻿namespace CRUDFramework.Cores
+﻿namespace CRUDFramework
 {
     public class FilterParams<T>
     {

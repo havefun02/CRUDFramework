@@ -1,11 +1,11 @@
-﻿using CRUDFramework.Cores;
+﻿using CRUDFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRUDFramework.Interfaces
+namespace CRUDFramework
 {
      public interface ISortingService<T> where T : class
     {

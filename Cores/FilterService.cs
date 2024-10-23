@@ -1,4 +1,4 @@
-﻿using CRUDFramework.Interfaces;
+﻿using CRUDFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRUDFramework.Cores
+namespace CRUDFramework
 {
     public class FilterService<T> : IFilterService<T> where T : class
     {

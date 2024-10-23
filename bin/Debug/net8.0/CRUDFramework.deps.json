@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "CRUDFramework/1.0.3": {
+      "CRUDFramework/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.0"
@@ -527,7 +527,7 @@
     }
   },
   "libraries": {
-    "CRUDFramework/1.0.3": {
+    "CRUDFramework/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
