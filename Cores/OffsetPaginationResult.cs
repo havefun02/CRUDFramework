@@ -1,11 +1,4 @@
-﻿using CRUDFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CRUDFramework
+﻿namespace CRUDFramework
 {
     public class OffsetPaginationResult<T> : IPaginationResult<T> where T : class
     {

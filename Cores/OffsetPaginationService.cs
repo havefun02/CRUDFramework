@@ -1,11 +1,4 @@
-﻿using CRUDFramework.Exceptions;
-using CRUDFramework;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace CRUDFramework
 {
@@ -35,7 +28,6 @@ namespace CRUDFramework
                     offset = offsetParams.offset,
                     items = items,
                 };
-            if (paginationResult == null) { throw new NotFoundException(); }
             return paginationResult;
         }
     }

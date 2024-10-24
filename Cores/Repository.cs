@@ -229,7 +229,7 @@ namespace CRUDFramework
                 {
                     return entity;
                 }
-                throw new NotFoundException();
+                throw new NotFoundException($"Cannot find user with id {nameof(primaryKey)}");
             }
             catch (InvalidOperationException ex)
             {

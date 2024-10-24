@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CRUDFramework
+﻿namespace CRUDFramework
 {
     class DataAccessException:Exception
     {
         public DataAccessException(string message, Exception innerException)
                     : base(message, innerException)
+        {
+        }
+        public DataAccessException(string message)
+                    : base(message)
         {
         }
     }
