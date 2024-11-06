@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
+using System.Data;
 
 namespace CRUDFramework
 {
@@ -26,7 +27,6 @@ namespace CRUDFramework
             _context = context;
             _dbSet = context.Set<T>();
         }
-
         /// <summary>
         /// Gets the <see cref="DbSet{TEntity}"/> for the entity type.
         /// </summary>
@@ -51,54 +51,35 @@ namespace CRUDFramework
         /// <param name="entity">The entity to create.</param>
         /// <returns>The created entity.</returns>
         /// <exception cref="DataAccessException">Thrown when there is an error during the create operation.</exception>
-        public async Task<T> CreateAsync(T entity)
+        public async Task CreateAsync(T entity)
         {
             try
             {
                 await _dbSet.AddAsync(entity);
-                await _context.SaveChangesAsync();
-                return entity;
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DataAccessException("An error occurred while creating the entity.", ex);
-            }
-            catch (InvalidOperationException ex)
-            {
-                throw new DataAccessException("Invalid operation encountered while adding the entity.", ex);
-            }
+            }  
             catch (OperationCanceledException)
             {
                 throw new InternalServerException("Internal server error. Failed to add the object");
             }
+            
         }
 
-        /// <summary>
-        /// Asynchronously creates a list of entities in the database.
-        /// </summary>
-        /// <param name="entities">The list of entities to create.</param>
-        /// <returns>The list of created entities.</returns>
-        /// <exception cref="DataAccessException">Thrown when there is an error during the create range operation.</exception>
-        public async Task<List<T>> CreateRangeAsync(List<T> entities)
+            /// <summary>
+            /// Asynchronously creates a list of entities in the database.
+            /// </summary>
+            /// <param name="entities">The list of entities to create.</param>
+            /// <returns>The list of created entities.</returns>
+            /// <exception cref="DataAccessException">Thrown when there is an error during the create range operation.</exception>
+        public async Task CreateRangeAsync(List<T> entities)
         {
             if (entities == null)
             {
                 throw new ArgumentNullException(nameof(entities));
             }
-
             try
             {
+                
                 await _dbSet.AddRangeAsync(entities);
-                await _context.SaveChangesAsync();
-                return entities;
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DataAccessException("An error occurred while creating the entity range.", ex);
-            }
-            catch (InvalidOperationException ex)
-            {
-                throw new DataAccessException("Invalid operation encountered while adding the entity range.", ex);
             }
             catch (OperationCanceledException)
             {
@@ -112,31 +93,14 @@ namespace CRUDFramework
         /// <param name="entity">The entity to update.</param>
         /// <returns>The updated entity.</returns>
         /// <exception cref="DataAccessException">Thrown when there is an error during the update operation.</exception>
-        public async Task<T> Update(T entity)
+        public void Update(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            try
-            {
-                _dbSet.Update(entity);
-                await _context.SaveChangesAsync();
-                return entity;
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DataAccessException("An error occurred while updating the entity.", ex);
-            }
-            catch (InvalidOperationException ex)
-            {
-                throw new DataAccessException("Invalid operation encountered while updating the entity.", ex);
-            }
-            catch (OperationCanceledException)
-            {
-                throw new InternalServerException("Internal server error. Failed to update the object");
-            }
+            _dbSet.Update(entity);
         }
 
         /// <summary>
@@ -145,31 +109,13 @@ namespace CRUDFramework
         /// <param name="entities">The list of entities to update.</param>
         /// <returns>The updated list of entities.</returns>
         /// <exception cref="DataAccessException">Thrown when there is an error during the update range operation.</exception>
-        public async Task<List<T>> UpdateRange(List<T> entities)
+        public void UpdateRange(List<T> entities)
         {
             if (entities == null)
             {
                 throw new ArgumentNullException(nameof(entities));
             }
-
-            try
-            {
-                _dbSet.UpdateRange(entities);
-                await _context.SaveChangesAsync();
-                return entities;
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DataAccessException("An error occurred while updating the entity range.", ex);
-            }
-            catch (InvalidOperationException ex)
-            {
-                throw new DataAccessException("Invalid operation encountered while updating the entity range.", ex);
-            }
-            catch (OperationCanceledException)
-            {
-                throw new InternalServerException("Internal server error. Failed to update the objects");
-            }
+            _dbSet.UpdateRange(entities);
         }
 
         /// <summary>
@@ -185,28 +131,13 @@ namespace CRUDFramework
                 throw new ArgumentNullException(nameof(primaryKey));
             }
 
-            try
+            var entity = await _dbSet.FindAsync(primaryKey);
+            if (entity != null)
             {
-                var entity = await _dbSet.FindAsync(primaryKey);
-                if (entity != null)
-                {
-                    _dbSet.Remove(entity);
-                    await _context.SaveChangesAsync();
-                }
-                else { throw new NullReferenceException("Can't find the object"); }
+                _dbSet.Remove(entity);
             }
-            catch (DbUpdateException ex)
-            {
-                throw new DataAccessException("An error occurred while deleting the entity.", ex);
-            }
-            catch (InvalidOperationException ex)
-            {
-                throw new DataAccessException("Invalid operation encountered while deleting the entity.", ex);
-            }
-            catch (OperationCanceledException)
-            {
-                throw new InternalServerException("Internal server error. Failed to delete the object");
-            }
+            else { throw new NullReferenceException("Can't find the object"); }
+           
         }
 
         /// <summary>
@@ -252,6 +183,10 @@ namespace CRUDFramework
             {
                 throw new DataAccessException("An error occurred while retrieving all entities.", ex);
             }
+        }
+        public async Task SaveAsync()
+        {
+            await this._context.SaveChangesAsync();
         }
     }
 }

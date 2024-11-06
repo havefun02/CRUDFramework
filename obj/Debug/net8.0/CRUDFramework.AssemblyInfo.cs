@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A simple CRUD framework")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ab7f5e7f84953c9cebc8ac47375ce24794585d0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a072fdc48b7298b097ff7a8984613d0a366ea936")]
 [assembly: System.Reflection.AssemblyProductAttribute("CRUDFramework")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CRUDFramework")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
