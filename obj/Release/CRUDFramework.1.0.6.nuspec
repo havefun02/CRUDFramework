@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CRUDFramework</id>
+    <version>1.0.6</version>
+    <authors>LAPPHAN</authors>
+    <description>A simple CRUD framework</description>
+    <tags>CRUD Framework</tags>
+    <repository type="git" commit="832d1d937c04a405dd395857c39a4090f6f2d84b" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Microsoft.EntityFrameworkCore" version="8.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\LAP PHAN\source\repos\CRUDFramework\CRUDFramework\bin\Release\net8.0\CRUDFramework.runtimeconfig.json" target="lib\net8.0\CRUDFramework.runtimeconfig.json" />
+    <file src="C:\Users\LAP PHAN\source\repos\CRUDFramework\CRUDFramework\bin\Release\net8.0\CRUDFramework.dll" target="lib\net8.0\CRUDFramework.dll" />
+  </files>
+</package>

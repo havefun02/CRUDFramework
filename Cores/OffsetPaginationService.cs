@@ -30,5 +30,33 @@ namespace CRUDFramework
                 };
             return paginationResult;
         }
+        public IPaginationResult<T> Paginate(IEnumerable<T> query, IPaginationParams pageParams)
+        {
+            //Cast params
+            var offsetParams = pageParams as OffsetPaginationParams;
+            if (offsetParams == null) throw new ArgumentException("Invalid pagination parameters.");
+
+
+            // Validate offset
+            if (offsetParams.offset < 0) throw new ArgumentException("Offset cannot be negative.");
+
+            var count =  query.Count();
+
+            var items =  query.Skip(offsetParams.offset)
+                                   .Take(offsetParams.limit)
+                                   .ToList();
+
+            //Cast result
+            var paginationResult =
+                new OffsetPaginationResult<T>
+                {
+                    totalItems = count,
+                    limit = offsetParams.limit,
+                    offset = offsetParams.offset,
+                    items = items,
+                };
+            return paginationResult;
+        }
+
     }
 }
